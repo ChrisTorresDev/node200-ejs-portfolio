@@ -16,6 +16,18 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/contact', (req, res) => {
+  res.render('contact');
+});
+
+app.post('/thanks', (req, res) => {
+  res.render('thanks', { contat: req.body })
+});
+
+var profile = require('./profile');
+
+app.use('/profile', profile);
+
 app.listen(8080, () => {
   console.log('listening at http://localhost:8080');
 });
